@@ -6,6 +6,9 @@ Children elements will be displayed in the middle of the progress bar.
 
 <strong>* Note: By default, the progress bar has no width or height, and so it won't show. It's necessary to define it's dimensions through the ```classes``` prop.</strong>
 
+![chrome_1jjUbRqUC3](https://github.com/user-attachments/assets/db390088-fc8f-4a30-8e18-6eb0795c282a)
+
+
 ## Props
 
 ### min
@@ -28,3 +31,12 @@ Children elements will be displayed in the middle of the progress bar.
 
 ### classes
 ```string```: External classes to be applied to the progress bar. Default is ```''```.
+
+
+## Scripts
+
+## npm start
+Serves the project in development mode on ```localhost:3000```.
+
+## npm run build
+Builds the project for production.
