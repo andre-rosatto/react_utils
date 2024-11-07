@@ -20,13 +20,14 @@ export interface CircularProgressBarProps {
 	children?: ReactNode;
 }
 
-const clamp = (value: number, min: number, max: number): number => {
-	return Math.max(Math.min(value, max), min);
-}
 
-const getPercent = (value: number, min: number, max: number): number => {
-	return clamp((value - min) * 100 / (max - min), 0, 100);
-}
+// helper functions
+// helper function to clamp values
+const clamp = (value: number, min: number, max: number): number => Math.max(Math.min(value, max), min);
+
+// helper function to convert the value into percentage
+const getPercent = (value: number, min: number, max: number): number => clamp((value - min) * 100 / (max - min), 0, 100);
+
 
 /** A circular progress bar. */
 const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
@@ -34,7 +35,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 	max = 0,
 	value = 0,
 	emptyColor = 'transparent',
-	fullColor = 'white', 
+	fullColor = 'black', 
 	thickness = 10,
 	classes = '',
 	children

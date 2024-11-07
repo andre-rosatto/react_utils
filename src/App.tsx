@@ -7,7 +7,7 @@ export default function App() {
 	const [max, setMax] = useState(100);
 	const [value, setValue] = useState(25);
 	const [emptyColor, setEmptyColor] = useState('transparent');
-	const [fullColor, setFullColor] = useState('white');
+	const [fullColor, setFullColor] = useState('black');
 	const [thickness, setThickness] = useState(10);
 
   return (
