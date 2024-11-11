@@ -23,6 +23,9 @@
 	grid-template-columns: 6rem 10rem 2rem;
 	align-items: center;
 	gap: 1rem;
+}
+
+.App .item>label {
 	text-align: right;
 }
 
