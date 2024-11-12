@@ -5,8 +5,6 @@ import { useCallback, useRef } from "react";
  * @param seed The initial seed for the generator. @defaultValue ```Date.now()```.
  */
 export function useRandom(seed: number = Date.now()) {
-	console.log(seed);
-	
 	const seedRef = useRef(seed);
 
 	const mulberry32 = useCallback(() => {
