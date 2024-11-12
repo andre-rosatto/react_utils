@@ -1,4 +1,4 @@
-# React useRandom
+# React useRandom Hook
 
 A pseudorandom number generator hook. It generates numbers between ```0``` and ```1``` using the Mulberry32 algorithm.
 
