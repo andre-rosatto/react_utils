@@ -7,8 +7,8 @@ const COUNT = 20;
 export default function App() {
 	const [seed1, setSeed1] = useState(0);
 	const [seed2, setSeed2] = useState(0);
-	const randomizer1 = useRandom(seed1);
-	const randomizer2 = useRandom(seed2);
+	const randomizer1 = useRandom(0);
+	const randomizer2 = useRandom(0);
 	const [results1, setResults1] = useState<number[]>([]);
 	const [results2, setResults2] = useState<number[]>([]);
 

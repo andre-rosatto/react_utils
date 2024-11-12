@@ -2,9 +2,11 @@ import { useCallback, useRef } from "react";
 
 /**
  * Pseudorandom number generator class using the Mulberry32 algorithm.
- * @param seed The initial seed for the generator.
+ * @param seed The initial seed for the generator. @defaultValue ```Date.now()```.
  */
-export function useRandom(seed: number) {
+export function useRandom(seed: number = Date.now()) {
+	console.log(seed);
+	
 	const seedRef = useRef(seed);
 
 	const mulberry32 = useCallback(() => {
@@ -20,9 +22,9 @@ export function useRandom(seed: number) {
 	
 	/**
 	 * Resets the seed and restarts the generator.
-	 * @param newSeed The new seed.
+	 * @param newSeed The new seed. @defaultValue ```Date.now()```.
 	 */
-	const setSeed = useCallback((newSeed: number): void => {
+	const setSeed = useCallback((newSeed: number = Date.now()): void => {
 		seedRef.current = newSeed;
 	}, []);
 
