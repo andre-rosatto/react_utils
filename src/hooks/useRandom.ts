@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 
 /**
- * Pseudorandom number generator class using the Mulberry32 algorithm.
+ * Pseudorandom number generator hook using the Mulberry32 algorithm.
  * @param seed The initial seed for the generator. @defaultValue ```Date.now()```.
  */
 export function useRandom(seed: number = Date.now()) {
