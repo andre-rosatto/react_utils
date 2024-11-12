@@ -1,6 +1,6 @@
 # React useRandom
 
-A pseudorandom number generator hook. It generates numbers between ```0``` and ```1```.
+A pseudorandom number generator hook. It generates numbers between ```0``` and ```1``` using the Mulberry32 algorithm.
 
 The generator is started with a provided seed. If no seed is provided, the current timestamp is used (from Date.now()), therefore generating a "random" seed.
 
