@@ -2,7 +2,7 @@
 
 General React components and hooks.
 
-Check the branches for different components and hooks.
+Have a look at the branches for different components and hooks.
 
 ## Components
 
