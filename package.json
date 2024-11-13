@@ -37,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "A cheerful confetti React component for all your celebratory needs.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
