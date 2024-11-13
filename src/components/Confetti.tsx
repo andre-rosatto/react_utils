@@ -107,7 +107,7 @@ export default function Confetti({
 		return () => cancelAnimationFrame(animation);
 	}, [canvas]);
 
-	const isCanvas = (el: any): el is HTMLCanvasElement => el instanceof HTMLCanvasElement;
+	const isCanvas = (el: unknown): el is HTMLCanvasElement => el instanceof HTMLCanvasElement;
 
 	const style: CSSProperties = {
 		position: 'absolute',
