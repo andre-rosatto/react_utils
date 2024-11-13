@@ -10,6 +10,10 @@ Check the branches for different components and hooks.
 A fully customizable circular progress bar.
 <a href="https://github.com/andre-rosatto/react_utils/tree/component/CircularProgressBar">Check it out here.</a>
 
+### Confetti
+A cheerful confetti React component for all your celebratory needs.
+<a href="https://github.com/andre-rosatto/react_utils/tree/component/Confetti">Check it out here.</a>
+
 ## Hooks
 
 ### useRandom
