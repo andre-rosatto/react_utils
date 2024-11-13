@@ -1,28 +1,43 @@
 import { CSSProperties, useEffect, useRef } from "react";
 
+/**
+ * Interface for the Confetti component
+ */
 interface ConfettiProps {
+	/** The number of confetti pieces to be generated. @defaultValue ```50```. */
 	count?: number;
+	/** Array of colours to be randomly picked. @defaultValue ```['red', 'blue', 'cyan', 'green', 'yellow', 'white', 'pink', 'orange', 'purple']```. */
 	colors?: Array<string>;
+	/** Z-index of the component. @defaultValue ```Number.MAX_SAFE_INTEGER```. */
 	zIndex?: number;
 }
 
+/**
+ * Interface for confetti pieces
+ */
 interface IConfetti {
+	/** X position */
 	x: number;
+	/** Y position */
 	y: number;
+	/** width */
 	w: number;
+	/** height */
 	h: number;
+	/** rotation */
 	r: number;
+	/** color */
 	color: string;
-	speedY: number;
+	/** X speed */
 	speedX: number;
+	/** Y speed */
+	speedY: number;
+	/** rotation speed */
 	speedR: number;
 }
 
 /**
  * Confetti component.
- * @param count The number of confetti to be generated. @defaultValue ```50```.
- * @param colors Array of colors to be randomly picked. @defaultValue ```['red', 'blue', 'cyan', 'green', 'yellow', 'white', 'pink', 'orange', 'purple']```.
- * @param zIndex Z-index of the component. @defaultValue ```Number.MAX_SAFE_INTEGER```.
  */
 export default function Confetti({
 		count = 50,
@@ -92,7 +107,7 @@ export default function Confetti({
 		return () => cancelAnimationFrame(animation);
 	}, [canvas]);
 
-	const isCanvas = (el: any): el is HTMLCanvasElement => 'getContext' in el;
+	const isCanvas = (el: any): el is HTMLCanvasElement => el instanceof HTMLCanvasElement;
 
 	const style: CSSProperties = {
 		position: 'absolute',
