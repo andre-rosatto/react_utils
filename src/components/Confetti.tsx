@@ -114,7 +114,7 @@ export default function Confetti({
 		top: 0,
 		left: 0,
 		pointerEvents: 'none',
-		zIndex: zIndex
+		zIndex
 	}
 
 	return (
