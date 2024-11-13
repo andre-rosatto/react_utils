@@ -8,25 +8,27 @@ export default function App() {
 	const [count, setCount] = useState<number>(50);
 
 	const handleCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value);
-		
+		// format the count value
 		const value = e.target.value.match(/[^0]\d*/g)?.toString() ?? '0';
-		console.log(value);
-		
 		setCount(parseInt(value));
 	}
 
   return (
     <div className="App">
+
 			<h1>React Confetti Component Demo</h1>
+
 			<section>
+
 				{/* colours config */}
 				<label>Colours:
 					<textarea
 						className="control"
 						rows={15}
 						value={colors.join('\n')}
-						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setColors(e.target.value.split('\n'))}
+						onChange={
+							(e: React.ChangeEvent<HTMLTextAreaElement>) => setColors(e.target.value.split('\n'))
+						}
 					/>
 				</label>
 
@@ -45,9 +47,7 @@ export default function App() {
 			<button
 				className="control"
 				onClick={() => setActive(!active)}
-			>
-				{active ? 'Stop' : 'Start'}
-			</button>
+			>{ active ? 'Stop' : 'Start' }</button>
 
 			{/* confetti */}
 			{active &&
@@ -56,6 +56,7 @@ export default function App() {
 					count={count}
 				/>
 			}
+
     </div>
   );
 }
