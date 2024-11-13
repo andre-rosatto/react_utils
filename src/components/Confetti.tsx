@@ -102,7 +102,6 @@ export default function Confetti({
 		zIndex: zIndex
 	}
 
-
 	return (
 		<canvas
 			ref={canvas}
