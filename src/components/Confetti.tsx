@@ -1,7 +1,7 @@
 import { CSSProperties, useEffect, useRef } from "react";
 
 /**
- * Interface for the Confetti component
+ * Interface for the Confetti component.
  */
 interface ConfettiProps {
 	/** The number of confetti pieces to be generated. @defaultValue ```50```. */
@@ -13,7 +13,7 @@ interface ConfettiProps {
 }
 
 /**
- * Interface for confetti pieces
+ * Interface for each confetti piece.
  */
 interface IConfetti {
 	/** X position */
