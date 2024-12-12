@@ -41,10 +41,13 @@ function App() {
 		}
 	}, []);
 
-	// updates the playback time
+	// uses requestAnimationFrame to update the playback time
 	useEffect(() => {
 		let animationFrameHandle: number;
 		const update = () => {
+			if (audio.currentTime >= audio.duration) {
+				setPlaying(false);
+			}
 			setCurrentTime(audio.currentTime);
 			animationFrameHandle = window.requestAnimationFrame(update);
 		}
@@ -89,6 +92,44 @@ function App() {
 			>{playing ? 'Stop' : 'Play'}</button>
 
 			<div className="config-container">
+
+				<label>Played Colour:
+					<input
+						type="text"
+						value={playedColor}
+						disabled={!audioBuffer}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPlayedColor(e.target.value)}
+					/>
+				</label>
+
+				<label>Unplayed Colour:
+					<input
+						type="text"
+						value={unplayedColor}
+						disabled={!audioBuffer}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUnplayedColor(e.target.value)}
+					/>
+				</label>
+
+				<label>Cursor Colour:
+					<input
+						type="text"
+						value={cursorColor}
+						disabled={!audioBuffer}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCursorColor(e.target.value)}
+					/>
+				</label>
+
+				<label>Samples:
+					<input
+						type="range"
+						min={50}
+						max={1500}
+						value={samples}
+						disabled={!audioBuffer}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSamples(parseInt(e.target.value))}
+					/>
+				</label>
 
 			</div>
     </div>
