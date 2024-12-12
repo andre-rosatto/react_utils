@@ -2,9 +2,7 @@
 
 An audio waveform visualization component.
 
-Children elements will be displayed in the middle of the progress bar.
-
-
+![screenshot](https://github.com/user-attachments/assets/4d547837-1645-426e-8195-f15863c51791)
 
 ## Props
 
@@ -18,13 +16,13 @@ Children elements will be displayed in the middle of the progress bar.
 ```number```: The sample rate to draw the waveform. Default is ```1000```.
 
 ### playedColor
-```string```: A CSS colour value to be used as the colour of the played part of the waveform.  Default is ```blue```.
+```string```: A CSS colour value to be used as the colour of the played part of the waveform.  Default is ```"blue"```.
 
 ### unplayedColor
-```string```: A CSS colour value to be used as the colour of the unplayed part of the waveform. Default is ```black```.
+```string```: A CSS colour value to be used as the colour of the unplayed part of the waveform. Default is ```"black"```.
 
 ### cursorColor
-```number```: A CSS colour value to be used as the colour of the cursor of the waveform. Default is ```blue```.
+```number```: A CSS colour value to be used as the colour of the cursor of the waveform. Default is ```"blue"```.
 
 
 ## Scripts
