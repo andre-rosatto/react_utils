@@ -7,7 +7,7 @@ An audio waveform visualization component.
 ## Props
 
 ### audioBuffer
-```AudioBuffer```: The audio buffer to be displayed in waveform. Default is ```null```.
+```AudioBuffer | null```: The audio buffer to be displayed in waveform. Default is ```null```.
 
 ### currentTime
 ```number```: The current playback time. Default is ```0```.
