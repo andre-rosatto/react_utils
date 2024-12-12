@@ -4,7 +4,7 @@ A circular progress bar component.
 
 Children elements will be displayed in the middle of the progress bar.
 
-<strong>* Note: By default, the progress bar has no width or height, and so it won't show. It's necessary to define it's dimensions through the ```classes``` prop.</strong>
+<strong>* Note: By default, the progress bar has no width or height, and so it won't show. It's necessary to define its dimensions through the ```classes``` prop.</strong>
 
 ![screenshot](https://github.com/user-attachments/assets/db390088-fc8f-4a30-8e18-6eb0795c282a)
 
