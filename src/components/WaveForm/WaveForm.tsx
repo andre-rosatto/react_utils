@@ -1,4 +1,5 @@
-import { CSSProperties, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import styles from './WaveForm.module.css';
 
 /** Interface for the CircularProgressBar's props. */
 interface WaveFormProps {
@@ -25,7 +26,7 @@ interface WaveFormProps {
 const filterData = (audioBuffer: AudioBuffer, samples: number): number[] => {
 	const rawData = audioBuffer.getChannelData(0);
 	const blockSize = Math.floor(rawData.length / samples);
-	
+
 	const filteredData = [];
 	for (let i = 0; i < samples; i++) {
 		let blockStart = blockSize * i;
@@ -67,14 +68,14 @@ const draw = (
 	if (buffer) {
 		const normalizedBuffer = normalizeData(filterData(buffer, samples));
 		const width = canvas.offsetWidth / normalizedBuffer.length;
-	
+
 		for (let i = 0; i < normalizedBuffer.length; i++) {
 			const x = width * i;
 			let height = Math.min(normalizedBuffer[i] * canvas.offsetHeight, canvas.offsetHeight / 2);
 			if (height <= 0) {
 				continue;
 			}
-	
+
 			ctx.lineWidth = 1;
 			ctx.fillStyle = x < position ? playedColor : unplayedColor;
 			ctx.fillRect(x, -height, width, height * 2);
@@ -115,7 +116,7 @@ const drawCursor = (ctx: CanvasRenderingContext2D, position: number, height: num
 }
 
 /** Waveform representation of an audio buffer */
-const WaveForm = ({
+export default function WaveForm({
 	audioBuffer = null,
 	currentTime = 0,
 	samples = 1000,
@@ -123,7 +124,7 @@ const WaveForm = ({
 	playedColor = 'blue',
 	cursorColor = 'blue',
 	onClick
-}: WaveFormProps) => {
+}: WaveFormProps) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
 	// Redraws the waveform on any significant changes.
@@ -132,12 +133,6 @@ const WaveForm = ({
 			draw(canvasRef.current, audioBuffer, currentTime, samples, playedColor, unplayedColor, cursorColor);
 		}
 	}, [audioBuffer, currentTime, samples, playedColor, unplayedColor, cursorColor]);
-
-	// Styling
-	const style: CSSProperties = {
-		width: '100%',
-		height: '100%'
-	}
 
 	// Handles onClick event
 	const handleClick = (e: React.MouseEvent<HTMLCanvasElement>): void => {
@@ -150,10 +145,8 @@ const WaveForm = ({
 	return (
 		<canvas
 			ref={canvasRef}
-			style={style}
+			className={styles.WaveForm}
 			onClick={handleClick}
 		></canvas>
-	)
+	);
 }
-
-export default WaveForm;

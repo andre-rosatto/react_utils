@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import WaveForm from './components/WaveForm';
+import WaveForm from './components/WaveForm/WaveForm';
 
 const audio = new Audio();
 const audioContext = new AudioContext();
@@ -35,7 +35,7 @@ function App() {
 				setCurrentTime(0);
 				setPlaying(false);
 			});
-		
+
 		return () => {
 			ignore = true;
 		}
@@ -72,9 +72,9 @@ function App() {
 		setCurrentTime(time);
 	}
 
-  return (
-    <div className="App">
-      <div className='waveform-container'>
+	return (
+		<div className="App">
+			<div className='waveform-container'>
 				<WaveForm
 					playedColor={playedColor}
 					unplayedColor={unplayedColor}
@@ -85,7 +85,7 @@ function App() {
 					onClick={handleWaveFormClick}
 				/>
 			</div>
-			
+
 			<button
 				onClick={handlePlayClick}
 				disabled={!audioBuffer}
@@ -132,8 +132,8 @@ function App() {
 				</label>
 
 			</div>
-    </div>
-  );
+		</div>
+	);
 }
 
 export default App;
