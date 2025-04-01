@@ -1,4 +1,5 @@
-import { CSSProperties, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import styles from './Confetti.module.css';
 
 /**
  * Interface for the Confetti component.
@@ -40,12 +41,12 @@ interface IConfetti {
  * Confetti component.
  */
 export default function Confetti({
-		count = 50,
-		colors = ['red', 'blue', 'cyan', 'green', 'yellow', 'white', 'pink', 'orange', 'purple'],
-		zIndex = Number.MAX_SAFE_INTEGER
-	}: ConfettiProps) {
+	count = 50,
+	colors = ['red', 'blue', 'cyan', 'green', 'yellow', 'white', 'pink', 'orange', 'purple'],
+	zIndex = Number.MAX_SAFE_INTEGER
+}: ConfettiProps) {
 	const canvas = useRef<HTMLCanvasElement>(null);
-	const confetti = useRef<Array<IConfetti>>(
+	const confetti = useRef<IConfetti[]>(
 		Array.from(Array(count), () => {
 			return {
 				x: Math.random() * window.innerWidth,
@@ -59,14 +60,30 @@ export default function Confetti({
 				speedR: (Math.random() - 0.5) / 20
 			}
 		}
-	));
+		));
 
 	useEffect(() => {
-		// resize event
+		// resize
 		const handleResize = () => {
 			if (canvas.current) {
-				canvas.current.width = window.innerWidth;
-				canvas.current.height = window.innerHeight;
+				const ctx = canvas.current.getContext('2d');
+				const dpr = window.devicePixelRatio || 1;
+
+				canvas.current.style.display = 'none';
+
+				const width = window.visualViewport?.width ?? window.innerWidth;
+				const height = window.visualViewport?.height ?? window.innerHeight;
+
+				canvas.current.style.width = `${width}px`;
+				canvas.current.style.height = `${height}px`;
+				canvas.current.width = width * dpr;
+				canvas.current.height = height * dpr;
+
+				canvas.current.style.display = 'block';
+
+				if (ctx) {
+					ctx.scale(dpr, dpr);
+				}
 			}
 		}
 		handleResize();
@@ -74,7 +91,7 @@ export default function Confetti({
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
-	useEffect(()=> {
+	useEffect(() => {
 		// confetti animation
 		let animation: number;
 		const updateConfetti = () => {
@@ -109,18 +126,11 @@ export default function Confetti({
 
 	const isCanvas = (el: unknown): el is HTMLCanvasElement => el instanceof HTMLCanvasElement;
 
-	const style: CSSProperties = {
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		pointerEvents: 'none',
-		zIndex
-	}
-
 	return (
 		<canvas
 			ref={canvas}
-			style={style}
+			className={styles.Confetti}
+			style={{ zIndex }}
 		></canvas>
 	);
 }
