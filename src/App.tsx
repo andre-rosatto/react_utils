@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import CircularProgressBar from './components/CircularProgressBar';
+import CircularProgressBar from './components/CircularProgressBar/CircularProgressBar';
 
 export default function App() {
 	const [min, setMin] = useState(0);
@@ -10,7 +10,7 @@ export default function App() {
 	const [fullColor, setFullColor] = useState('black');
 	const [thickness, setThickness] = useState(10);
 
-  return (
+	return (
 		<div className="App">
 			<CircularProgressBar
 				min={min}
@@ -26,7 +26,7 @@ export default function App() {
 
 			{/* controls for testing */}
 			<section>
-				
+
 				{/* min */}
 				<div className="item">
 					<label>Min: </label>
@@ -80,7 +80,7 @@ export default function App() {
 						value={fullColor}
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFullColor(e.target.value)} />
 				</div>
-				
+
 				{/* thickness */}
 				<div className="item">
 					<label>Thickness: </label>
@@ -93,7 +93,7 @@ export default function App() {
 					<p>{thickness}</p>
 				</div>
 			</section>
-			
+
 		</div>
-  );
+	);
 }
